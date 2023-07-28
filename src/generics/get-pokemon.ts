@@ -1,6 +1,5 @@
 import axios from "axios";
-import { Pokemon } from '../interfaces';
-
+import { PokemonI } from '../interfaces/pokemon';
 
 
 
@@ -18,10 +17,10 @@ import { Pokemon } from '../interfaces';
 
 // //! con AXIOS
 // //! Para el tipado automático existen JSON converter como << quicktype.io >>
-export const getPokemon = async ( pokemonId: number ) : Promise<Pokemon> => {
+export const getPokemon = async ( pokemonId: number ) : Promise<PokemonI> => {
   
   // //*El genérico no lo transforma, solo le indica el tipo, puede que el tipo tenga atributos que la repuesta no y muestre "undefinded"
-  const { data } = await axios.get<Pokemon>( `https://pokeapi.co/api/v2/pokemon/${ pokemonId }` )
+  const { data } = await axios.get<PokemonI>( `https://pokeapi.co/api/v2/pokemon/${ pokemonId }` )
   return data;
 }
 
